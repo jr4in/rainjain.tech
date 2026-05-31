@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page.title }} | RAIN's Blog</title>
+        <link rel="stylesheet" href="/assets/css/index.css">
+        <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    </head>
+    <body>
+        <header>
+            <a class="title" href="/">
+                <h1>
+                    RAIN's Blog
+                </h1>
+            </a>
+            <nav>
+                <p><a href='/'>Home</a> <a href='/now'>Now</a> <a href='/projects'>Projects</a> <a href='/rocks'>Rocks!</a>  </p>
+            </nav>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+        <footer>
+            <p>Subscribe via <a href='/feed'>rss</a> or just say <a href='/contact'>hello</a>.</p>
+        </footer>
+    </body>
+</html>
