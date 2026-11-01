@@ -8,6 +8,41 @@
         <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
         <link rel="icon" type="image/png" href="/assets/images/favicon.png">
         <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'strict',
+                ...(prefersDark ? {
+                    theme: 'base',
+                    themeVariables: {
+                        darkMode: true,
+                        background: '#01242e',
+                        primaryColor: '#123a43',
+                        primaryTextColor: '#eeeeee',
+                        primaryBorderColor: '#8cc2dd',
+                        lineColor: '#8cc2dd',
+                        textColor: '#eeeeee',
+                        nodeTextColor: '#eeeeee',
+                        edgeLabelBackground: '#01242e',
+                        secondaryColor: '#16434d',
+                        tertiaryColor: '#0d3039',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                } : {})
+            });
+            document.addEventListener('DOMContentLoaded', async () => {
+                document.querySelectorAll('pre code.language-mermaid').forEach((code) => {
+                    const diagram = document.createElement('div');
+                    diagram.className = 'mermaid';
+                    diagram.textContent = code.textContent;
+                    code.closest('.language-mermaid')?.replaceWith(diagram);
+                });
+                await mermaid.run({ querySelector: '.mermaid' });
+            });
+        </script>
     </head>
     <body>
         <header>
